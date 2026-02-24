@@ -1,0 +1,37 @@
+services:
+  pocketbase:
+    image: ghcr.io/muchobien/pocketbase:latest
+    container_name: moneystill-pocketbase
+    restart: unless-stopped
+    ports:
+      - "8090:8090"
+    volumes:
+      - pb_data:/pb/pb_data
+      - ./pb_hooks:/pb/pb_hooks
+    env_file:
+      - .env
+    networks:
+      - moneystill-network
+
+  frontend:
+    build:
+      context: ./frontend
+      dockerfile: Dockerfile
+      args:
+        - VITE_POCKETBASE_URL=${VITE_POCKETBASE_URL:-http://pocketbase:8090}
+    container_name: moneystill-frontend
+    restart: unless-stopped
+    ports:
+      - "3000:80"
+    depends_on:
+      - pocketbase
+    networks:
+      - moneystill-network
+
+volumes:
+  pb_data:
+
+
+networks:
+  moneystill-network:
+    driver: bridge

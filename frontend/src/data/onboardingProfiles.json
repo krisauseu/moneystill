@@ -1,0 +1,327 @@
+[
+    {
+        "id": "student_intern",
+        "name": "Student / Intern",
+        "description": "Optimized for college life: focus on tight budgets, financial aid, student loans, and campus expenses.",
+        "categories": [
+            {
+                "name": "Financial Aid / Scholarships",
+                "type": "income",
+                "icon": "school",
+                "is_fixed": true
+            },
+            {
+                "name": "Part-time Job",
+                "type": "income",
+                "icon": "briefcase",
+                "is_fixed": false
+            },
+            {
+                "name": "Family Support",
+                "type": "income",
+                "icon": "family_restroom",
+                "is_fixed": false
+            },
+            {
+                "name": "Tuition & Fees",
+                "type": "fixed_expense",
+                "icon": "receipt_long"
+            },
+            {
+                "name": "Textbooks & Supplies",
+                "type": "variable_expense",
+                "icon": "book"
+            },
+            {
+                "name": "Rent (Dorm / Shared)",
+                "type": "fixed_expense",
+                "icon": "home"
+            },
+            {
+                "name": "Student Loan Payment",
+                "type": "fixed_expense",
+                "icon": "account_balance"
+            },
+            {
+                "name": "Meal Plan / Groceries",
+                "type": "variable_expense",
+                "icon": "restaurant"
+            },
+            {
+                "name": "Streaming & Subscriptions",
+                "type": "fixed_expense",
+                "icon": "play_circle"
+            },
+            {
+                "name": "Entertainment / Going Out",
+                "type": "variable_expense",
+                "icon": "celebration"
+            }
+        ]
+    },
+    {
+        "id": "family",
+        "name": "Family with Kids",
+        "description": "Comprehensive structure for family life, including childcare, education savings, and household management.",
+        "categories": [
+            {
+                "name": "Paycheck (Primary)",
+                "type": "income",
+                "icon": "payments",
+                "is_fixed": true
+            },
+            {
+                "name": "Paycheck (Spouse)",
+                "type": "income",
+                "icon": "payments",
+                "is_fixed": true
+            },
+            {
+                "name": "Child Tax Credit",
+                "type": "income",
+                "icon": "baby_carriage",
+                "is_fixed": true
+            },
+            {
+                "name": "Side Income",
+                "type": "income",
+                "icon": "card_giftcard",
+                "is_fixed": false
+            },
+            {
+                "name": "Childcare / Daycare",
+                "type": "fixed_expense",
+                "icon": "backpack"
+            },
+            {
+                "name": "Rent / Mortgage",
+                "type": "fixed_expense",
+                "icon": "home"
+            },
+            {
+                "name": "Groceries & Household",
+                "type": "variable_expense",
+                "icon": "shopping_cart"
+            },
+            {
+                "name": "Kids Clothing & Gear",
+                "type": "variable_expense",
+                "icon": "checkroom"
+            },
+            {
+                "name": "529 College Savings",
+                "type": "fixed_expense",
+                "icon": "savings"
+            },
+            {
+                "name": "Family Outings / Vacation",
+                "type": "variable_expense",
+                "icon": "flight"
+            },
+            {
+                "name": "Insurance (Family)",
+                "type": "fixed_expense",
+                "icon": "verified_user"
+            },
+            {
+                "name": "Kids Activities & Sports",
+                "type": "fixed_expense",
+                "icon": "sports_soccer"
+            }
+        ]
+    },
+    {
+        "id": "freelancer",
+        "name": "Freelancer / Self-Employed",
+        "description": "Accounts for variable income, tax reserves, and business expenses specific to self-employment.",
+        "categories": [
+            {
+                "name": "Client Payments",
+                "type": "income",
+                "icon": "work",
+                "is_fixed": false
+            },
+            {
+                "name": "Retainer Income",
+                "type": "income",
+                "icon": "description",
+                "is_fixed": false
+            },
+            {
+                "name": "Tax Refund",
+                "type": "income",
+                "icon": "account_balance",
+                "is_fixed": false
+            },
+            {
+                "name": "Self-Employment Tax Reserve",
+                "type": "variable_expense",
+                "icon": "account_balance_wallet"
+            },
+            {
+                "name": "Health Insurance (Marketplace)",
+                "type": "fixed_expense",
+                "icon": "health_and_safety"
+            },
+            {
+                "name": "Retirement (SEP-IRA / Solo 401k)",
+                "type": "fixed_expense",
+                "icon": "trending_up"
+            },
+            {
+                "name": "Software & Tools",
+                "type": "fixed_expense",
+                "icon": "computer"
+            },
+            {
+                "name": "Office Rent / Coworking",
+                "type": "fixed_expense",
+                "icon": "desk"
+            },
+            {
+                "name": "Marketing & Advertising",
+                "type": "variable_expense",
+                "icon": "campaign"
+            },
+            {
+                "name": "Professional Development",
+                "type": "variable_expense",
+                "icon": "school"
+            },
+            {
+                "name": "Equipment & Hardware",
+                "type": "variable_expense",
+                "icon": "print"
+            }
+        ]
+    },
+    {
+        "id": "single",
+        "name": "Single Professional",
+        "description": "Focus on career, lifestyle, savings, and personal growth. Optimized for individual earners.",
+        "categories": [
+            {
+                "name": "Paycheck (Net)",
+                "type": "income",
+                "icon": "payments",
+                "is_fixed": true
+            },
+            {
+                "name": "Bonus / Commissions",
+                "type": "income",
+                "icon": "card_giftcard",
+                "is_fixed": false
+            },
+            {
+                "name": "Investment Income",
+                "type": "income",
+                "icon": "trending_up",
+                "is_fixed": false
+            },
+            {
+                "name": "Rent",
+                "type": "fixed_expense",
+                "icon": "home"
+            },
+            {
+                "name": "401(k) / Roth IRA",
+                "type": "fixed_expense",
+                "icon": "savings"
+            },
+            {
+                "name": "Gym / Fitness",
+                "type": "fixed_expense",
+                "icon": "fitness_center"
+            },
+            {
+                "name": "Streaming & Subscriptions",
+                "type": "fixed_expense",
+                "icon": "live_tv"
+            },
+            {
+                "name": "Shopping / Lifestyle",
+                "type": "variable_expense",
+                "icon": "shopping_bag"
+            },
+            {
+                "name": "Dining Out / Delivery",
+                "type": "variable_expense",
+                "icon": "restaurant"
+            },
+            {
+                "name": "Travel",
+                "type": "variable_expense",
+                "icon": "flight"
+            },
+            {
+                "name": "Internet & Phone",
+                "type": "fixed_expense",
+                "icon": "wifi"
+            }
+        ]
+    },
+    {
+        "id": "homeowner",
+        "name": "Homeowner",
+        "description": "Specialized categories for homeowners: mortgage, maintenance, property taxes, and utility management.",
+        "categories": [
+            {
+                "name": "Salary / Income",
+                "type": "income",
+                "icon": "payments",
+                "is_fixed": true
+            },
+            {
+                "name": "Rental Income (Unit / Room)",
+                "type": "income",
+                "icon": "key",
+                "is_fixed": true
+            },
+            {
+                "name": "Mortgage Payment",
+                "type": "fixed_expense",
+                "icon": "account_balance"
+            },
+            {
+                "name": "Home Maintenance Fund",
+                "type": "fixed_expense",
+                "icon": "build"
+            },
+            {
+                "name": "Property Tax",
+                "type": "fixed_expense",
+                "icon": "gavel"
+            },
+            {
+                "name": "Homeowners Insurance",
+                "type": "fixed_expense",
+                "icon": "shield"
+            },
+            {
+                "name": "Utilities (Electric / Water / Gas)",
+                "type": "fixed_expense",
+                "icon": "lightbulb"
+            },
+            {
+                "name": "HOA Fees / Trash / Sewer",
+                "type": "fixed_expense",
+                "icon": "delete"
+            },
+            {
+                "name": "Lawn & Garden Care",
+                "type": "variable_expense",
+                "icon": "yard"
+            },
+            {
+                "name": "HVAC / Appliance Repairs",
+                "type": "variable_expense",
+                "icon": "engineering"
+            },
+            {
+                "name": "Home / Renters Insurance",
+                "type": "fixed_expense",
+                "icon": "security"
+            }
+        ]
+    }
+]
