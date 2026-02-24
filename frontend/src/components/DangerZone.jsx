@@ -24,32 +24,8 @@ export default function DangerZone() {
         try {
             const userId = pb.authStore.model.id;
 
-            // Manual cleanup of dependent records as cascade delete seems to be blocked by 'required' constraints
-            // 1. Delete monthly values
-            const monthlyValues = await pb.collection('monthly_values').getFullList({ filter: `user = "${userId}"` });
-            for (const val of monthlyValues) {
-                await pb.collection('monthly_values').delete(val.id);
-            }
-
-            // 2. Delete scenario values
-            const scenarioValues = await pb.collection('scenario_values').getFullList({ filter: `user = "${userId}"` });
-            for (const val of scenarioValues) {
-                await pb.collection('scenario_values').delete(val.id);
-            }
-
-            // 3. Delete scenarios
-            const scenarios = await pb.collection('scenarios').getFullList({ filter: `user = "${userId}"` });
-            for (const s of scenarios) {
-                await pb.collection('scenarios').delete(s.id);
-            }
-
-            // 4. Delete categories
-            const categories = await pb.collection('categories').getFullList({ filter: `user = "${userId}"` });
-            for (const cat of categories) {
-                await pb.collection('categories').delete(cat.id);
-            }
-
-            // Finally delete the user account
+            // Fast cleanup is now handled server-side by pb_hooks/user_cleanup.pb.js
+            // when the user record is deleted.
             await pb.collection('users').delete(userId);
 
             // Clear local auth store
@@ -57,7 +33,7 @@ export default function DangerZone() {
             window.location.href = '/'; // Hard redirect to landing/login
         } catch (err) {
             console.error('Error deleting account:', err);
-            setError('Error deleting account. The system could not automatically remove some linked data.');
+            setError('Error deleting account. Please try again later.');
             setLoading(false);
         }
     };
