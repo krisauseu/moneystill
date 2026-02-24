@@ -65,8 +65,10 @@ export const AuthProvider = ({ children }) => {
             return authData;
         },
         signInWithGoogle: async () => {
-            const authData = await pb.collection('users').authWithOAuth2({ provider: 'google' });
-            return authData;
+            return await pb.collection('users').authWithOAuth2({ provider: 'google' });
+        },
+        signInWithGitHub: async () => {
+            return await pb.collection('users').authWithOAuth2({ provider: 'github' });
         },
         signOut: () => pb.authStore.clear(),
         resendVerification: (email) => pb.collection('users').requestVerification(email),

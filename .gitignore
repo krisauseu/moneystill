@@ -27,3 +27,12 @@ postgres_data/
 
 # PocketBase data
 pb_data/
+
+# Local schema dumps
+*_schema.json
+
+# Misc
+.env*
+!.env.example
+.DS_Store
+*.log

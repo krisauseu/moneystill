@@ -9,8 +9,7 @@ A personal budget planning application built with **React** and **PocketBase**. 
 - **Rich Analytics** – Sankey flow charts, expense distribution, trend analysis, savings rate
 - **PDF Export** – Generate professional reports in US Letter format
 - **Stripe Subscriptions** – Integrated billing with Stripe Checkout and Customer Portal
-- **Dark Mode** – Full dark/light theme support
-- **PWA** – Installable progressive web app with offline caching
+- **OAuth Authentication** – Secure login via Google or GitHub
 - **Onboarding Wizard** – Guided setup with 5 US-optimized budget profiles
 - **Data Portability** – Export/import your data as JSON backups
 
@@ -98,6 +97,14 @@ moneystill/
 ├── .env.example        # Environment variable template
 └── README.md
 ```
+
+## OAuth Integration Setup
+
+To enable Google or GitHub login:
+1.  Go to the **PocketBase Admin UI** -> Settings -> Auth providers.
+2.  Select **Google** or **GitHub**.
+3.  Enter the **Client ID** and **Client Secret** obtained from the respective developer consoles.
+4.  Activate the provider.
 
 ## Stripe Integration Setup
 
