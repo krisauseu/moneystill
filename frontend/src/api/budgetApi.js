@@ -140,19 +140,68 @@ export const updateValue = async (category_id, year, month, amount, scenario_id 
 };
 
 export const batchUpdateValues = async (updates) => {
-    // PocketBase doesn't have a native "batch upsert" in the SDK yet (beyond manual transactions)
-    // For simplicity and speed, we do them sequentially. PocketBase is very efficient.
-    const results = [];
-    for (const update of updates) {
-        results.push(await updateValue(
-            update.category_id,
-            update.year,
-            update.month,
-            update.amount,
-            update.scenario_id
-        ));
+    if (!updates || updates.length === 0) return [];
+
+    const firstUpdate = updates[0];
+    const collectionName = firstUpdate.scenario_id ? 'scenario_values' : 'monthly_values';
+    const year = firstUpdate.year;
+    const scenario_id = firstUpdate.scenario_id;
+
+    console.log(`budgetApi: Optimized batch update for ${updates.length} items in ${collectionName}`);
+
+    // 1. Fetch all existing records for this scope (year + optional scenario)
+    // This allows us to know which records to 'update' and which to 'create' in one go.
+    let filter = `year = ${year}`;
+    if (scenario_id) {
+        filter += ` && scenario = "${scenario_id}"`;
     }
-    return results;
+
+    try {
+        const existingRecords = await pb.collection(collectionName).getFullList({
+            filter,
+            requestKey: null // Disable auto-cancellation for this fetch if needed
+        });
+
+        // Map for quick lookup: "categoryId-month" -> recordId
+        const existingMap = {};
+        existingRecords.forEach(rec => {
+            const key = `${rec.category}-${rec.month}`;
+            existingMap[key] = rec.id;
+        });
+
+        // 2. Build and send batch
+        const batch = pb.createBatch();
+
+        for (const update of updates) {
+            const key = `${update.category_id}-${update.month}`;
+            const existingId = existingMap[key];
+
+            if (existingId) {
+                // Update existing record
+                batch.collection(collectionName).update(existingId, {
+                    amount: update.amount
+                });
+            } else {
+                // Create new record
+                batch.collection(collectionName).create({
+                    category: update.category_id,
+                    year: update.year,
+                    month: update.month,
+                    amount: update.amount,
+                    user: pb.authStore.model.id,
+                    ...(update.scenario_id && { scenario: update.scenario_id })
+                });
+            }
+        }
+
+        const result = await batch.send();
+        console.log(`budgetApi: Batch update completed successfully`);
+        return result;
+
+    } catch (err) {
+        console.error('budgetApi: Optimized batch update failed:', err);
+        throw err;
+    }
 };
 
 // Summary API
