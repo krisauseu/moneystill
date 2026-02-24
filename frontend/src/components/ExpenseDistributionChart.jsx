@@ -116,7 +116,7 @@ export default function ExpenseDistributionChart({ data, loading, selectedMonth 
         <div className="glass rounded-2xl p-6">
             <h3 className="text-lg font-semibold text-slate-800 dark:text-white mb-4">Expense Distribution</h3>
             <div className="h-72">
-                <ResponsiveContainer width="100%" height="100%">
+                <ResponsiveContainer width="100%" height="100%" minWidth={0}>
                     <PieChart>
                         <Pie
                             data={expenseData}

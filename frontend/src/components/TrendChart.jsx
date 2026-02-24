@@ -124,7 +124,7 @@ export default function TrendChart({ data, loading, selectedMonth = 0 }) {
                 )}
             </div>
             <div className="h-72">
-                <ResponsiveContainer width="100%" height="100%">
+                <ResponsiveContainer width="100%" height="100%" minWidth={0}>
                     <ComposedChart data={monthlyData}>
                         <defs>
                             <linearGradient id="surplusGradient" x1="0" y1="0" x2="0" y2="1">
