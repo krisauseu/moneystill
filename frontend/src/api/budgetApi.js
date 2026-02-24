@@ -40,24 +40,28 @@ export const updateCategory = async (id, category) => {
 };
 
 export const deleteCategory = async (id) => {
-    // Delete all related monthly values first
+    const batch = pb.createBatch();
+
+    // 1. Queue all related monthly values for deletion
     const monthlyValues = await pb.collection('monthly_values').getFullList({
         filter: `category = "${id}"`,
     });
     for (const v of monthlyValues) {
-        await pb.collection('monthly_values').delete(v.id);
+        batch.collection('monthly_values').delete(v.id);
     }
 
-    // Delete all related scenario values
+    // 2. Queue all related scenario values for deletion
     const scenarioValues = await pb.collection('scenario_values').getFullList({
         filter: `category = "${id}"`,
     });
     for (const v of scenarioValues) {
-        await pb.collection('scenario_values').delete(v.id);
+        batch.collection('scenario_values').delete(v.id);
     }
 
-    // Finally delete the category
-    return await pb.collection('categories').delete(id);
+    // 3. Finally queue the category itself
+    batch.collection('categories').delete(id);
+
+    return await batch.send();
 };
 
 // Monthly Values API
@@ -295,15 +299,22 @@ export const createScenario = async (name, year, copyFromLive = false) => {
             filter: `year = ${year}`,
         });
 
-        for (const v of liveValues) {
-            await pb.collection('scenario_values').create({
-                category: v.category,
-                year: v.year,
-                month: v.month,
-                amount: v.amount,
-                user: pb.authStore.model.id,
-                scenario: scenario.id,
-            });
+        if (liveValues.length > 0) {
+            console.log(`budgetApi: Copying ${liveValues.length} live values to scenario ${scenario.id}`);
+            const batch = pb.createBatch();
+
+            for (const v of liveValues) {
+                batch.collection('scenario_values').create({
+                    category: v.category,
+                    year: v.year,
+                    month: v.month,
+                    amount: v.amount,
+                    user: pb.authStore.model.id,
+                    scenario: scenario.id,
+                });
+            }
+
+            await batch.send();
         }
     }
 
