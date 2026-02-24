@@ -1,8 +1,23 @@
-# moneystill – Budget Planner
+# 💰 moneystill – Budget Planner
 
-A personal budget planning application built with **React** and **PocketBase**. Track income, expenses, and savings with monthly breakdowns, scenario planning, rich analytics, and PDF export.
+[![License: AGPL v3](https://img.shields.io/badge/License-AGPL_v3-blue.svg)](https://www.gnu.org/licenses/agpl-3.0)
+[![React](https://img.shields.io/badge/React-20232A?style=flat&logo=react&logoColor=61DAFB)](https://reactjs.org/)
+[![PocketBase](https://img.shields.io/badge/PocketBase-v0.22+-blue?logo=pocketbase&logoColor=white)](https://pocketbase.io/)
+[![PRs Welcome](https://img.shields.io/badge/PRs-welcome-brightgreen.svg?style=flat-square)](http://makeapullrequest.com)
 
-## Features
+A premium, modern personal budget planning application built with **React** and **PocketBase**. Track income, expenses, and savings with elegant monthly breakdowns, scenario planning, rich analytics, and professional PDF exports.
+
+![moneystill Dashboard](screen1.png)
+
+## ☁️ Managed Hosting
+
+Don't want to deal with servers, Docker, or configuration? We offer a fully managed version of **moneystill** with automatic backups, updates, and priority support.
+
+🏠 **Get started in 30 seconds at [moneystill.com](https://moneystill.com)**
+
+---
+
+## 🚀 Features
 
 - **Monthly Budget Table** – Track income, fixed expenses, and variable expenses across all 12 months
 - **Scenario Planning** – Create "what-if" scenarios to compare against live data
