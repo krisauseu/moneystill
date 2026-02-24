@@ -14,15 +14,15 @@ export default function Footer() {
 
                 <div className="flex items-center gap-6 text-sm font-medium">
                     <a
-                        href="https://moneystill.com/legal"
+                        href="https://moneystill.com/imprint.html"
                         target="_blank"
                         rel="noopener noreferrer"
                         className="hover:text-blue-500 transition-colors"
                     >
-                        Legal Notice
+                        Imprint
                     </a>
                     <a
-                        href="https://moneystill.com/privacy"
+                        href="https://moneystill.com/privacy.html"
                         target="_blank"
                         rel="noopener noreferrer"
                         className="hover:text-blue-500 transition-colors"
@@ -30,7 +30,7 @@ export default function Footer() {
                         Privacy Policy
                     </a>
                     <a
-                        href="https://moneystill.com/terms"
+                        href="https://moneystill.com/terms.html"
                         target="_blank"
                         rel="noopener noreferrer"
                         className="hover:text-blue-500 transition-colors"
