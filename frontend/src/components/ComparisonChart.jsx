@@ -51,14 +51,14 @@ export default function ComparisonChart({ data, loading, scenarioName }) {
                             </span>
                         </div>
                         <div className="flex justify-between gap-8 text-sm">
-                            <span className="text-indigo-600 dark:text-indigo-400 font-medium">Ist (Live):</span>
+                            <span className="text-indigo-600 dark:text-indigo-400 font-medium">Actual (Live):</span>
                             <span className="font-mono font-bold text-indigo-700 dark:text-indigo-300">
                                 {formatCurrency(live)}
                             </span>
                         </div>
                         <div className="pt-2 mt-2 border-t border-slate-200 dark:border-slate-700">
                             <div className="flex justify-between gap-8 text-sm">
-                                <span className="font-medium text-slate-600 dark:text-slate-300">Differenz:</span>
+                                <span className="font-medium text-slate-600 dark:text-slate-300">Difference:</span>
                                 <span className={`font-mono font-bold ${diff >= 0 ? 'text-emerald-600 dark:text-emerald-400' : 'text-red-600 dark:text-red-400'}`}>
                                     {diff > 0 ? '+' : ''}{formatCurrency(diff)} ({diffPercent > 0 ? '+' : ''}{diffPercent.toFixed(1)}%)
                                 </span>
@@ -98,7 +98,7 @@ export default function ComparisonChart({ data, loading, scenarioName }) {
                     </div>
                     <div className="flex items-center gap-1.5">
                         <div className="w-3 h-3 bg-indigo-500 rounded-sm"></div>
-                        <span className="text-slate-600 dark:text-slate-400">Ist-Daten</span>
+                        <span className="text-slate-600 dark:text-slate-400">Actual Data</span>
                     </div>
                 </div>
             </div>
@@ -141,7 +141,7 @@ export default function ComparisonChart({ data, loading, scenarioName }) {
                         <Line
                             type="monotone"
                             dataKey="live"
-                            name="Ist-Daten"
+                            name="Actual Data"
                             stroke="#6366f1"
                             strokeWidth={4}
                             dot={{ r: 4, fill: '#6366f1', strokeWidth: 2, stroke: isDark ? '#0f172a' : '#ffffff' }}

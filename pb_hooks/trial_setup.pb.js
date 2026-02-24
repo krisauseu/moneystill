@@ -23,7 +23,7 @@ onRecordAuthWithPasswordRequest((e) => {
         trialEndsAt.setDate(trialEndsAt.getDate() + 7);
         e.record.set("trial_ends_at", trialEndsAt);
 
-        $app.dao().saveRecord(e.record);
+        $app.save(e.record);
     }
 
     return result;
@@ -39,7 +39,7 @@ onRecordAuthWithOAuth2Request((e) => {
         trialEndsAt.setDate(trialEndsAt.getDate() + 7);
         e.record.set("trial_ends_at", trialEndsAt);
 
-        $app.dao().saveRecord(e.record);
+        $app.save(e.record);
     }
 
     return result;

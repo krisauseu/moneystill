@@ -3,7 +3,7 @@ import { pb } from '../lib/pocketbase';
 // Categories API
 export const getCategories = async () => {
     return await pb.collection('categories').getFullList({
-        sort: '-type,display_order,created',
+        sort: '-type,display_order',
     });
 };
 
@@ -230,7 +230,7 @@ export const checkHealth = async () => {
 export const getScenarios = async (year) => {
     return await pb.collection('scenarios').getFullList({
         filter: `year = ${year}`,
-        sort: '-created',
+        sort: '-name',
     });
 };
 

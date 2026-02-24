@@ -60,7 +60,7 @@ export const AuthProvider = ({ children }) => {
             if (!authData.record.verified) {
                 // Clear the auth store - don't allow login for unverified users
                 pb.authStore.clear();
-                throw new Error('Bitte bestätigen Sie zuerst Ihre E-Mail-Adresse. Prüfen Sie Ihren Posteingang.');
+                throw new Error('Please confirm your email address first. Please check your inbox.');
             }
             return authData;
         },

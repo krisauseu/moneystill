@@ -1,4 +1,4 @@
-const MONTHS = ['Jan', 'Feb', 'Mär', 'Apr', 'Mai', 'Jun', 'Jul', 'Aug', 'Sep', 'Okt', 'Nov', 'Dez'];
+const MONTHS = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'];
 
 /**
  * Merges live and planning data for Recharts Comparison Chart.
@@ -12,12 +12,12 @@ export const mergeScenarioData = (liveSummary, planSummary) => {
 
     return MONTHS.map((month, index) => {
         const monthNum = index + 1;
-        
+
         // Extract monthly balances (income - total expense)
         // Adjust these keys based on actual API response format if different
         const liveVal = liveSummary.monthlyBalances?.[monthNum] || 0;
         const planVal = planSummary.monthlyBalances?.[monthNum] || 0;
-        
+
         const diff = liveVal - planVal;
         const diffPercent = planVal !== 0 ? (diff / Math.abs(planVal)) * 100 : 0;
 

@@ -6,8 +6,9 @@ services:
     ports:
       - "8090:8090"
     volumes:
-      - pb_data:/pb/pb_data
-      - ./pb_hooks:/pb/pb_hooks
+      - pb_data:/pb_data
+      - ./pb_hooks:/pb_hooks
+      - ./pb_migrations:/pb_migrations
     env_file:
       - .env
     networks:
@@ -18,7 +19,7 @@ services:
       context: ./frontend
       dockerfile: Dockerfile
       args:
-        - VITE_POCKETBASE_URL=${VITE_POCKETBASE_URL:-http://pocketbase:8090}
+        - VITE_POCKETBASE_URL=${VITE_POCKETBASE_URL}
     container_name: moneystill-frontend
     restart: unless-stopped
     ports:

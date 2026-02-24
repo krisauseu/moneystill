@@ -27,10 +27,10 @@ nano .env
 
 Fill in your values:
 ```env
-VITE_POCKETBASE_URL=https://your-pocketbase-url.com
+VITE_POCKETBASE_URL=https://pb.yourdomain.com
 STRIPE_SECRET_KEY=sk_test_...
 STRIPE_PRICE_ID=price_...
-FRONTEND_URL=https://app.moneystill.com
+FRONTEND_URL=https://app.yourdomain.com
 ```
 
 ### 3. Start Docker containers

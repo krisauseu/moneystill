@@ -66,18 +66,18 @@ A personal budget planning application built with **React** and **PocketBase**. 
 # Build and start all services
 docker compose up -d --build
 
-# Frontend: http://localhost:3000
-# PocketBase Admin: http://localhost:8090/_/
+# Frontend: http://localhost:3000 (or your configured port)
+# PocketBase Admin: http://localhost:8090/_/ (or your configured port)
 ```
 
 ### Environment Variables
 
 | Variable              | Description                          | Example                          |
 |-----------------------|--------------------------------------|----------------------------------|
-| `VITE_POCKETBASE_URL` | PocketBase API URL                   | `http://localhost:8090`          |
+| `VITE_POCKETBASE_URL` | PocketBase API URL                   | `https://pb.yourdomain.com`      |
 | `STRIPE_SECRET_KEY`   | Stripe secret key                    | `sk_test_...`                    |
 | `STRIPE_PRICE_ID`     | Stripe subscription price ID        | `price_...`                      |
-| `FRONTEND_URL`        | Public frontend URL (for redirects)  | `https://app.moneystill.com`    |
+| `FRONTEND_URL`        | Public frontend URL (for redirects)  | `https://app.yourdomain.com`    |
 
 ## Project Structure
 
@@ -98,6 +98,15 @@ moneystill/
 ├── .env.example        # Environment variable template
 └── README.md
 ```
+
+## Stripe Integration Setup
+
+1. **Create a Stripe account** and get your **Secret Key** from the Dashboard.
+2. **Create a Product** in Stripe for the subscription.
+3. **Create a Price** for that product and copy the **Price ID** (starts with `price_...`).
+4. **Configure Webhooks** (for production):
+   - Set the webhook endpoint to `https://pb.yourdomain.com/api/stripe-webhook`.
+   - Ensure the PocketBase instance is publicly accessible.
 
 ## License
 

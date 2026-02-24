@@ -70,15 +70,15 @@ function buildSankeyData(data, selectedMonth) {
     });
 
     // Central node
-    const totalId = 'Gesamteinkommen';
-    nodes.push({ id: totalId, label: 'Gesamteinkommen' });
+    const totalId = 'TotalIncome';
+    nodes.push({ id: totalId, label: 'Total Income' });
     nodeColorMap[totalId] = TOTAL_INCOME_COLOR;
 
     // Savings node (if income > expenses)
     const savings = totalIncome - totalExpenses;
     if (savings > 0) {
-        nodes.push({ id: 'Sparen', label: 'Sparen' });
-        nodeColorMap['Sparen'] = '#22d3ee'; // cyan-400
+        nodes.push({ id: 'Savings', label: 'Savings' });
+        nodeColorMap['Savings'] = '#22d3ee'; // cyan-400
     }
 
     // Expense nodes (right) – top N
@@ -90,8 +90,8 @@ function buildSankeyData(data, selectedMonth) {
 
     // Sonstige node
     if (sonstigeTotal > 0) {
-        nodes.push({ id: 'Sonstige', label: 'Sonstige' });
-        nodeColorMap['Sonstige'] = SONSTIGE_COLOR;
+        nodes.push({ id: 'Others', label: 'Others' });
+        nodeColorMap['Others'] = SONSTIGE_COLOR;
     }
 
     // Build links
@@ -119,7 +119,7 @@ function buildSankeyData(data, selectedMonth) {
     if (sonstigeTotal > 0) {
         links.push({
             source: totalId,
-            target: 'Sonstige',
+            target: 'Others',
             value: sonstigeTotal,
         });
     }
@@ -128,7 +128,7 @@ function buildSankeyData(data, selectedMonth) {
     if (savings > 0) {
         links.push({
             source: totalId,
-            target: 'Sparen',
+            target: 'Savings',
             value: savings,
         });
     }
@@ -161,9 +161,9 @@ export default function SankeyChart({ data, loading, selectedMonth = 0 }) {
     if (!sankeyData) {
         return (
             <div className="glass rounded-2xl p-6">
-                <h3 className="text-lg font-semibold text-slate-800 dark:text-white mb-4">Geldfluss</h3>
+                <h3 className="text-lg font-semibold text-slate-800 dark:text-white mb-4">Cash Flow</h3>
                 <div className="h-64 flex items-center justify-center text-slate-400 dark:text-slate-500">
-                    Keine Daten vorhanden
+                    No data available
                 </div>
             </div>
         );
@@ -177,7 +177,7 @@ export default function SankeyChart({ data, loading, selectedMonth = 0 }) {
             <div className="glass rounded-xl p-3 shadow-xl border border-white/50 dark:border-slate-700">
                 <p className="font-semibold text-slate-800 dark:text-white">{node.label}</p>
                 <p className="text-slate-600 dark:text-slate-300">{formatCurrency(node.value)}</p>
-                <p className="text-sm text-slate-500 dark:text-slate-400">{percent}% vom Einkommen</p>
+                <p className="text-sm text-slate-500 dark:text-slate-400">{percent}% of income</p>
             </div>
         );
     };
@@ -190,7 +190,7 @@ export default function SankeyChart({ data, loading, selectedMonth = 0 }) {
                     {link.source.label} → {link.target.label}
                 </p>
                 <p className="text-slate-600 dark:text-slate-300">{formatCurrency(link.value)}</p>
-                <p className="text-sm text-slate-500 dark:text-slate-400">{percent}% vom Einkommen</p>
+                <p className="text-sm text-slate-500 dark:text-slate-400">{percent}% of income</p>
             </div>
         );
     };
@@ -215,7 +215,7 @@ export default function SankeyChart({ data, loading, selectedMonth = 0 }) {
 
     return (
         <div className="glass rounded-2xl p-6">
-            <h3 className="text-lg font-semibold text-slate-800 dark:text-white mb-4">Geldfluss</h3>
+            <h3 className="text-lg font-semibold text-slate-800 dark:text-white mb-4">Cash Flow</h3>
             <div className="h-[400px]">
                 <ResponsiveSankey
                     data={{ nodes, links }}

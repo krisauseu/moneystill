@@ -13,7 +13,7 @@ import {
 } from 'recharts';
 import { useTheme } from '../context/ThemeContext';
 
-const MONTHS = ['Jan', 'Feb', 'Mär', 'Apr', 'Mai', 'Jun', 'Jul', 'Aug', 'Sep', 'Okt', 'Nov', 'Dez'];
+const MONTHS = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'];
 
 export default function TrendChart({ data, loading, selectedMonth = 0 }) {
     const { isDark } = useTheme();
@@ -67,7 +67,7 @@ export default function TrendChart({ data, loading, selectedMonth = 0 }) {
             return (
                 <div className={`glass rounded-xl p-4 shadow-xl border ${isSelected ? 'border-blue-400 ring-2 ring-blue-200 dark:ring-blue-900' : tooltipBorder}`}>
                     <p className={`font-semibold mb-2 ${isSelected ? 'text-blue-700 dark:text-blue-400' : tooltipText}`}>
-                        {label} {isSelected && '(ausgewählt)'}
+                        {label} {isSelected && '(selected)'}
                     </p>
                     {payload.map((entry, index) => (
                         <p key={index} className="text-sm" style={{ color: entry.color }}>

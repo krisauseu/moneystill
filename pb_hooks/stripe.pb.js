@@ -3,7 +3,7 @@
 routerAdd("POST", "/api/stripe-checkout", (e) => {
     const STRIPE_SECRET_KEY = $os.getenv("STRIPE_SECRET_KEY");
     const STRIPE_PRICE_ID = $os.getenv("STRIPE_PRICE_ID");
-    const FRONTEND_URL = $os.getenv("FRONTEND_URL") || "http://localhost:5173";
+    const FRONTEND_URL = $os.getenv("FRONTEND_URL") || "";
 
     const user = e.auth;
     if (!user) {
@@ -116,7 +116,7 @@ routerAdd("POST", "/api/stripe-webhook", (e) => {
 // Route to create a Stripe Customer Portal Session
 routerAdd("POST", "/api/stripe-portal", (e) => {
     const STRIPE_SECRET_KEY = $os.getenv("STRIPE_SECRET_KEY");
-    const FRONTEND_URL = $os.getenv("FRONTEND_URL") || "http://localhost:5173";
+    const FRONTEND_URL = $os.getenv("FRONTEND_URL") || "";
 
     const user = e.auth || e.requestInfo().auth;
     if (!user) {
