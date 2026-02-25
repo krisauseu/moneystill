@@ -86,6 +86,13 @@ export default function LoginPage() {
         <div className="min-h-screen flex items-center justify-center p-4 bg-slate-100 dark:bg-slate-950 transition-colors">
             <div className="w-full max-w-md bg-white dark:bg-slate-900 rounded-2xl shadow-xl overflow-hidden border border-slate-200 dark:border-slate-800">
                 <div className="p-8">
+                    <div className="flex justify-center mb-6">
+                        <img
+                            src="/logo.png"
+                            alt="moneystill logo"
+                            className="w-20 h-20 object-contain"
+                        />
+                    </div>
                     <h2 className="text-3xl font-bold text-center text-slate-800 dark:text-white mb-2">
                         {isLogin ? 'Welcome back' : 'Create account'}
                     </h2>

@@ -28,7 +28,7 @@ export default function Header({
                     <img
                         src="/logo.png"
                         alt="moneystill logo"
-                        className="w-12 h-12 object-contain dark:brightness-0 dark:invert transition-all"
+                        className="w-12 h-12 object-contain transition-all"
                     />
                     <div>
                         <h1 className="text-2xl font-bold text-slate-800 dark:text-white">
