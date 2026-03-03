@@ -23,7 +23,7 @@ services:
     container_name: moneystill-frontend
     restart: unless-stopped
     ports:
-      - "3000:80"
+      - "${PORT:-3000}:80"
     depends_on:
       - pocketbase
     networks:
@@ -36,3 +36,4 @@ volumes:
 networks:
   moneystill-network:
     driver: bridge
+
