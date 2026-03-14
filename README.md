@@ -86,12 +86,13 @@ docker compose up -d --build
 
 ### Environment Variables
 
-| Variable              | Description                          | Example                          |
-|-----------------------|--------------------------------------|----------------------------------|
-| `VITE_POCKETBASE_URL` | PocketBase API URL                   | `https://pb.yourdomain.com`      |
-| `STRIPE_SECRET_KEY`   | Stripe secret key                    | `sk_test_...`                    |
+| Variable              | Description                         | Example / Default                |
+|-----------------------|-------------------------------------|----------------------------------|
+| `VITE_POCKETBASE_URL` | PocketBase API URL                  | `https://pb.yourdomain.com`      |
+| `STRIPE_SECRET_KEY`   | Stripe secret key                   | `sk_test_...`                    |
 | `STRIPE_PRICE_ID`     | Stripe subscription price ID        | `price_...`                      |
-| `FRONTEND_URL`        | Public frontend URL (for redirects)  | `https://app.yourdomain.com`    |
+| `FRONTEND_URL`        | Public frontend URL (for redirects) | `https://app.yourdomain.com`     |
+| `PORT`                | Local port for the frontend service | `3000` (Default)                 |
 
 ## Project Structure
 
